@@ -1,0 +1,103 @@
+/*
+ Navicat Premium Data Transfer
+
+ Source Server         : localhost
+ Source Server Type    : MySQL
+ Source Server Version : 50630
+ Source Host           : localhost
+ Source Database       : zuccqa
+
+ Target Server Type    : MySQL
+ Target Server Version : 50630
+ File Encoding         : utf-8
+
+ Date: 04/10/2021 15:58:01 PM
+*/
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+--  Table structure for `mst_course`
+-- ----------------------------
+DROP TABLE IF EXISTS `mst_course`;
+CREATE TABLE `mst_course` (
+  `sid` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(2048) DEFAULT NULL,
+  `teacher` varchar(256) DEFAULT NULL,
+  PRIMARY KEY (`sid`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+--  Records of `mst_course`
+-- ----------------------------
+BEGIN;
+INSERT INTO `mst_course` VALUES ('1', '??608768', '??yoWtPE'), ('2', '??184020', '??LjAKEz');
+COMMIT;
+
+-- ----------------------------
+--  Table structure for `mst_user`
+-- ----------------------------
+DROP TABLE IF EXISTS `mst_user`;
+CREATE TABLE `mst_user` (
+  `sid` int(11) NOT NULL AUTO_INCREMENT,
+  `loginname` varchar(256) DEFAULT NULL,
+  `password` varchar(512) DEFAULT NULL,
+  `sno` varchar(128) DEFAULT NULL,
+  `name` varchar(128) DEFAULT NULL,
+  `user_type` varchar(256) DEFAULT NULL,
+  `email` varchar(256) DEFAULT NULL,
+  `cell_phone` varchar(128) DEFAULT NULL,
+  PRIMARY KEY (`sid`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+--  Records of `mst_user`
+-- ----------------------------
+BEGIN;
+INSERT INTO `mst_user` VALUES ('1', 'u513163', '123456', 'S62705443', null, 'student', null, '1234567890'), ('2', 'u267658', '123456', 'S46171910', null, 'student', null, '1234567890');
+COMMIT;
+
+-- ----------------------------
+--  Table structure for `qa_answer`
+-- ----------------------------
+DROP TABLE IF EXISTS `qa_answer`;
+CREATE TABLE `qa_answer` (
+  `sid` int(11) NOT NULL AUTO_INCREMENT,
+  `content` varchar(2048) DEFAULT NULL,
+  `creator` int(11) DEFAULT NULL,
+  `create_date` datetime DEFAULT NULL,
+  `update_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`sid`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+--  Records of `qa_answer`
+-- ----------------------------
+BEGIN;
+INSERT INTO `qa_answer` VALUES ('4', 'contentVRKmPBTxCy', '1', '2020-04-14 07:56:40', '2020-04-14 07:56:40'), ('5', 'contentGsmfNHPdhg', '1', '2020-04-14 07:56:40', '2020-04-14 07:56:40'), ('6', 'contentGtdTgafVAY', '1', '2020-04-14 07:56:40', '2020-04-14 07:56:40');
+COMMIT;
+
+-- ----------------------------
+--  Table structure for `qa_question`
+-- ----------------------------
+DROP TABLE IF EXISTS `qa_question`;
+CREATE TABLE `qa_question` (
+  `sid` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(2048) DEFAULT NULL,
+  `creator` int(11) DEFAULT NULL,
+  `create_date` datetime DEFAULT NULL,
+  `update_date` datetime DEFAULT NULL,
+  `answer_sid` int(11) DEFAULT NULL,
+  `course_sid` int(11) DEFAULT NULL,
+  PRIMARY KEY (`sid`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+--  Records of `qa_question`
+-- ----------------------------
+BEGIN;
+INSERT INTO `qa_question` VALUES ('6', 'title-fyhS', '1', '2020-04-14 04:42:57', '2020-04-14 04:42:57', null, '1'), ('7', 'title-BoIU', '1', '2020-04-14 04:42:57', '2020-04-14 04:42:57', null, '1'), ('8', 'title-aLLx', '1', '2020-04-14 04:42:57', '2020-04-14 04:42:57', null, '1'), ('9', 'title-egzC', '1', '2020-04-14 04:42:57', '2020-04-14 04:42:57', null, '1'), ('10', 'title-Kcwq', '1', '2020-04-14 04:42:57', '2020-04-14 04:42:57', null, '1'), ('11', 'title-lPpe', '2', '2021-04-10 12:03:31', '2021-04-10 12:03:31', null, '2'), ('12', 'title-FErV', '2', '2021-04-10 12:03:31', '2021-04-10 12:03:31', null, '2'), ('13', 'title-zUCc', '2', '2021-04-10 12:03:31', '2021-04-10 12:03:31', null, '2'), ('14', 'title-JEoq', '2', '2021-04-10 12:03:31', '2021-04-10 12:03:31', null, '2'), ('15', 'title-bvrh', '2', '2021-04-10 12:03:31', '2021-04-10 12:03:31', null, '2');
+COMMIT;
+
+SET FOREIGN_KEY_CHECKS = 1;
