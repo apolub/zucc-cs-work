@@ -1,0 +1,31 @@
+clear ;
+clc;
+syms y;
+x = y^2 - 1;
+f = int(x, 3, 5);
+fprintf('Area : %f\n', eval(f));
+%plotting
+yy = linspace(0, 6);
+xx = subs(x, y, yy);
+plot(yy, xx);xlabel('y');
+ylabel('x');
+hold on;
+X = [3, 3];
+Y = [0, subs(x, y, 3)];
+plot(X, Y, 'r');
+X = [5, 5]; 
+Y = [0, subs(x, y, 5)]; 
+plot(X, Y, 'r');
+plot([0, 6], [0, 0], 'k-');
+grid;
+x = linspace(3, 5);
+y1 = x.^2 - 1;
+y2 = zeros(1,100);
+X = [x,fliplr(x)];
+Y = [y1,fliplr(y2)];
+fill(X,Y,'g'); 
+alpha(0.25);
+text(3, 20, 'x = y^2 - 1');
+t = '$Area \quad of \quad y = \sqrt {x - 1}\quad between \quad y=3 \quad and \quad y=5$';
+title(t,'interpreter','latex','Color', 'r')
+hold off;
